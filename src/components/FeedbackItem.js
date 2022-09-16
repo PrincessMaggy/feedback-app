@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import {Card} from "../styles";
 
-function FeedbackItem(props) {
+function FeedbackItem({item}) {
   return (
-    <div className='card'>
-        <div className='num-display'> {props.rating} </div>
-        {/* <div className='text-display'> {props.text} </div> */}
-    </div>
+    <Card>
+        <div className='num-display'> {item.rating} </div>
+        <div className='text-display'> {item.text} </div>
+    </Card>
   )
 }
 
