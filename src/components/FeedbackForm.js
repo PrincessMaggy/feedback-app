@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
-import {Card} from "../styles"
+import {Card} from "../styles";
+import Button from '../shared/Button';
 
 function FeedbackForm() {
 
@@ -20,7 +21,7 @@ const handleText = (e) =>{
             value={text}
             onChange= {handleText} 
             placeholder="Write a review" />
-            <button type='submit'>Send</button>
+            <Button type='submit'>Send</Button>
         </div>
       </form>
     </Card>
