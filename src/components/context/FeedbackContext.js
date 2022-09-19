@@ -55,12 +55,27 @@ export const FeedbackProvider = ({children}) =>{
         })
     }
 
-    const updateFeedback = (id, upItem) =>{
-        setFeedback(feedback.map((item) =>
-            item.id === id ? {
-                ...item, ...upItem
-            }: item ))
-    }
+    const updateFeedback = async (id, upItem) => {
+        const response = await fetch(`/feedback/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(upItem),
+        })
+    
+        const data = await response.json()
+    
+        // NOTE: no need to spread data and item
+        setFeedback(feedback.map((item) => (item.id === id ? data : item)))
+    
+        // FIX: this fixes being able to add a feedback after editing
+        // credit to Jose https://www.udemy.com/course/react-front-to-back-2022/learn/lecture/29768200#questions/16462688
+        setFeedbackEdit({
+          item: {},
+          edit: false,
+        })
+      }
 
     return <FeedbackContext.Provider
         value={{
