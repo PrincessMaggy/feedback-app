@@ -9,18 +9,15 @@ import FeedbackForm from "../components/FeedbackForm";
 
 import {FaQuestion} from "react-icons/fa";
 
-function Home({feedback, addFeedback, deleteFeedback}) {
-
+function Home() {
     
   return (
     <div>
       <Header/>
       <div className="container">
-        <FeedbackForm handleAdd ={addFeedback} />
-        <FeedbackStats feedback={feedback}/>
-        <FeedbackList 
-        feedback={feedback}
-        handleDelete = {deleteFeedback}/>
+        <FeedbackForm/>
+        <FeedbackStats/>
+        <FeedbackList />
      </div>
      <div className='about-link'>
         <Link to={"/about"}>
@@ -31,4 +28,4 @@ function Home({feedback, addFeedback, deleteFeedback}) {
   )
 }
 
-export default Home
+export default Home;
